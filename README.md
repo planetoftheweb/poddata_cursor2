@@ -52,6 +52,47 @@ npm run build
 npm run preview
 ```
 
+## How to Test
+
+### Manual Testing
+
+To verify the dashboard is working correctly:
+
+1. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+2. **Verify the dashboard loads:**
+   - Open `http://localhost:5173` in your browser
+   - Check that the dashboard header displays with key metrics (Total Episodes, Avg Downloads, etc.)
+   - Verify all six charts render without errors
+
+3. **Test interactive features:**
+   - **Zoom & Pan**: Click and drag on any chart to pan, use scroll wheel to zoom
+   - **Theme Toggle**: Click the theme toggle button in the header to switch between light and dark modes
+   - **Chart Insights**: Verify that each chart displays computed insights and statistics
+
+4. **Verify data loading:**
+   - Check browser console for any errors related to CSV parsing
+   - Verify that episodes are displayed in chronological order
+   - Confirm that calculated metrics (rolling averages, correlations) appear correctly
+
+5. **Test production build:**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+   - Verify the production build works identically to the development server
+
+### Automated Testing
+
+Currently, automated tests are not configured. To add testing:
+
+1. Install a testing framework (e.g., Vitest, Jest, or React Testing Library)
+2. Create test files in a `tests/` or `__tests__/` directory
+3. Add a `test` script to `package.json`
+
 ## Data Format
 
 The dashboard expects a CSV file at `public/podcast-metrics.csv` with the following schema:
