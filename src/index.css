@@ -48,12 +48,38 @@ header p {
 }
 
 .summary-item {
+<<<<<<< Current (Your changes)
   background: rgba(148, 163, 255, 0.08);
   border: 1px solid rgba(148, 163, 255, 0.2);
+=======
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--summary-bg);
+  border: 1px solid var(--summary-border);
+>>>>>>> Incoming (Background Agent changes)
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
   backdrop-filter: blur(6px);
-  min-width: 140px;
+  min-width: 160px;
+}
+
+.summary-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: rgba(148, 163, 255, 0.12);
+  border: 1px solid rgba(148, 163, 255, 0.2);
+  color: var(--text-secondary);
+  flex-shrink: 0;
 }
 
 .summary-item strong {
