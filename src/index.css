@@ -1,8 +1,75 @@
 :root {
-  color-scheme: light;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #0b1120;
-  color: #e2e8f0;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-primary: #0b1120;
+  --bg-gradient-1: rgba(56, 189, 248, 0.12);
+  --bg-gradient-2: rgba(129, 140, 248, 0.12);
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5f5;
+  --text-tertiary: rgba(226, 232, 240, 0.78);
+  --text-accent: #f8fafc;
+  --heading-color: #f472b6;
+  --card-bg: rgba(15, 23, 42, 0.7);
+  --card-border: rgba(99, 102, 241, 0.15);
+  --card-shadow: rgba(15, 23, 42, 0.35);
+  --summary-bg: rgba(148, 163, 255, 0.08);
+  --summary-border: rgba(148, 163, 255, 0.2);
+  --tooltip-bg: rgba(15, 23, 42, 0.92);
+  --tooltip-border: rgba(148, 163, 255, 0.35);
+  --tooltip-shadow: rgba(15, 23, 42, 0.45);
+  --tooltip-heading: rgba(251, 191, 36, 0.95);
+  --axis-label: rgba(148, 163, 184, 0.9);
+  --grid-line: rgba(148, 163, 184, 0.18);
+  --line-primary: #38bdf8;
+  --line-secondary: rgba(129, 140, 248, 0.8);
+  --dot-fill: rgba(129, 140, 248, 0.9);
+  --dot-highlight: #facc15;
+  --area-fill: rgba(56, 189, 248, 0.24);
+  --stack-new: rgba(56, 189, 248, 0.45);
+  --stack-returning: rgba(129, 140, 248, 0.45);
+  --insight-color: rgba(129, 140, 248, 0.9);
+  --legend-color: rgba(203, 213, 225, 0.8);
+  --toggle-bg: rgba(148, 163, 255, 0.1);
+  --toggle-border: rgba(148, 163, 255, 0.25);
+  --toggle-hover: rgba(148, 163, 255, 0.2);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-primary: #f8fafc;
+  --bg-gradient-1: rgba(56, 189, 248, 0.08);
+  --bg-gradient-2: rgba(129, 140, 248, 0.08);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-tertiary: rgba(51, 65, 85, 0.75);
+  --text-accent: #0f172a;
+  --heading-color: #ec4899;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(148, 163, 184, 0.2);
+  --card-shadow: rgba(15, 23, 42, 0.1);
+  --summary-bg: rgba(241, 245, 249, 0.8);
+  --summary-border: rgba(148, 163, 184, 0.3);
+  --tooltip-bg: rgba(255, 255, 255, 0.98);
+  --tooltip-border: rgba(148, 163, 184, 0.4);
+  --tooltip-shadow: rgba(15, 23, 42, 0.15);
+  --tooltip-heading: rgba(245, 158, 11, 0.95);
+  --axis-label: rgba(71, 85, 105, 0.8);
+  --grid-line: rgba(148, 163, 184, 0.3);
+  --line-primary: #0ea5e9;
+  --line-secondary: rgba(99, 102, 241, 0.8);
+  --dot-fill: rgba(99, 102, 241, 0.85);
+  --dot-highlight: #eab308;
+  --area-fill: rgba(56, 189, 248, 0.2);
+  --stack-new: rgba(56, 189, 248, 0.4);
+  --stack-returning: rgba(99, 102, 241, 0.4);
+  --insight-color: rgba(99, 102, 241, 0.9);
+  --legend-color: rgba(71, 85, 105, 0.8);
+  --toggle-bg: rgba(241, 245, 249, 0.9);
+  --toggle-border: rgba(148, 163, 184, 0.3);
+  --toggle-hover: rgba(148, 163, 184, 0.2);
 }
 
 * {
@@ -11,8 +78,10 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 50%),
-    radial-gradient(circle at 80% 0%, rgba(129, 140, 248, 0.12), transparent 50%), #0b1120;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background: radial-gradient(circle at 20% 20%, var(--bg-gradient-1), transparent 50%),
+    radial-gradient(circle at 80% 0%, var(--bg-gradient-2), transparent 50%), var(--bg-primary);
 }
 
 .app {
@@ -23,6 +92,7 @@ body {
 }
 
 header {
+  position: relative;
   margin-bottom: 2.5rem;
 }
 
@@ -30,13 +100,13 @@ header h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(2.1rem, 3vw, 3rem);
   letter-spacing: -0.03em;
-  color: #f472b6;
+  color: var(--heading-color);
 }
 
 header p {
   margin: 0.35rem 0;
   line-height: 1.6;
-  color: #cbd5f5;
+  color: var(--text-secondary);
   max-width: 680px;
 }
 
@@ -48,16 +118,11 @@ header p {
 }
 
 .summary-item {
-<<<<<<< Current (Your changes)
-  background: rgba(148, 163, 255, 0.08);
-  border: 1px solid rgba(148, 163, 255, 0.2);
-=======
   display: flex;
   align-items: center;
   gap: 0.85rem;
   background: var(--summary-bg);
   border: 1px solid var(--summary-border);
->>>>>>> Incoming (Background Agent changes)
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
   backdrop-filter: blur(6px);
@@ -67,34 +132,41 @@ header p {
 .summary-item-text {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
 .summary-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.75rem;
-  background: rgba(148, 163, 255, 0.12);
-  border: 1px solid rgba(148, 163, 255, 0.2);
-  color: var(--text-secondary);
+  width: 2rem;
+  height: 2rem;
   flex-shrink: 0;
+  color: var(--text-secondary);
+  opacity: 0.85;
 }
 
-.summary-item strong {
+.summary-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.summary-item-text strong {
   display: block;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.78);
+  color: var(--text-tertiary);
+  white-space: nowrap;
 }
 
-.summary-item span {
+.summary-item-text span {
   display: block;
   font-size: 1.25rem;
   margin-top: 0.3rem;
-  color: #ffffff;
+  color: var(--text-accent);
+  white-space: nowrap;
 }
 
 .chart-grid {
@@ -112,9 +184,9 @@ header p {
   position: relative;
   padding: 1.5rem;
   border-radius: 1.1rem;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(99, 102, 241, 0.15);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 18px 40px var(--card-shadow);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -123,12 +195,12 @@ header p {
 .chart-card h2 {
   margin: 0;
   font-size: 1.25rem;
-  color: #f8fafc;
+  color: var(--text-accent);
 }
 
 .chart-description {
   margin: 0;
-  color: rgba(203, 213, 225, 0.85);
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.45;
 }
@@ -136,7 +208,7 @@ header p {
 .chart-insight {
   margin: 0;
   font-size: 0.85rem;
-  color: rgba(129, 140, 248, 0.9);
+  color: var(--insight-color);
   font-weight: 600;
 }
 
@@ -152,12 +224,12 @@ header p {
 .chart-tooltip {
   position: absolute;
   transform: translate(-50%, -115%);
-  background: rgba(15, 23, 42, 0.92);
-  border: 1px solid rgba(148, 163, 255, 0.35);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.45);
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  box-shadow: 0 12px 32px var(--tooltip-shadow);
   border-radius: 0.6rem;
   padding: 0.65rem 0.75rem;
-  color: #f8fafc;
+  color: var(--text-accent);
   pointer-events: none;
   min-width: 150px;
   display: grid;
@@ -168,7 +240,7 @@ header p {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(251, 191, 36, 0.95);
+  color: var(--tooltip-heading);
 }
 
 .chart-tooltip-metric {
@@ -176,56 +248,56 @@ header p {
   justify-content: space-between;
   align-items: baseline;
   font-size: 0.75rem;
-  color: rgba(226, 232, 240, 0.78);
+  color: var(--text-tertiary);
 }
 
 .chart-tooltip-metric strong {
   font-size: 0.85rem;
-  color: #f8fafc;
+  color: var(--text-accent);
 }
 
 .axis-label {
-  fill: rgba(148, 163, 184, 0.9);
+  fill: var(--axis-label);
   font-size: 0.7rem;
 }
 
 .grid-line {
-  stroke: rgba(148, 163, 184, 0.18);
+  stroke: var(--grid-line);
   stroke-width: 1;
   shape-rendering: crispEdges;
 }
 
 .line-primary {
   fill: none;
-  stroke: #38bdf8;
+  stroke: var(--line-primary);
   stroke-width: 2.5px;
 }
 
 .line-secondary {
   fill: none;
-  stroke: rgba(129, 140, 248, 0.8);
+  stroke: var(--line-secondary);
   stroke-width: 2px;
   stroke-dasharray: 6 4;
 }
 
 .dot {
-  fill: rgba(129, 140, 248, 0.9);
+  fill: var(--dot-fill);
 }
 
 .dot-highlight {
-  fill: #facc15;
+  fill: var(--dot-highlight);
 }
 
 .area-fill {
-  fill: rgba(56, 189, 248, 0.24);
+  fill: var(--area-fill);
 }
 
 .stack-new {
-  fill: rgba(56, 189, 248, 0.45);
+  fill: var(--stack-new);
 }
 
 .stack-returning {
-  fill: rgba(129, 140, 248, 0.45);
+  fill: var(--stack-returning);
 }
 
 .legend {
@@ -233,7 +305,7 @@ header p {
   flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 0.75rem;
-  color: rgba(203, 213, 225, 0.8);
+  color: var(--legend-color);
 }
 
 .legend-item {
@@ -255,4 +327,34 @@ header p {
 
 .interaction-layer:active {
   cursor: grabbing;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  border-radius: 0.75rem;
+  padding: 0.65rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-hover);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  display: block;
 }

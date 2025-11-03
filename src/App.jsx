@@ -4,6 +4,7 @@ import ListenerMixChart from './components/ListenerMixChart.jsx';
 import SubscriberGrowthChart from './components/SubscriberGrowthChart.jsx';
 import SharesSubscribersScatter from './components/SharesSubscribersScatter.jsx';
 import DurationCompletionScatter from './components/DurationCompletionScatter.jsx';
+import ThemeToggle from './components/ThemeToggle.jsx';
 import { usePodcastData } from './hooks/usePodcastData.js';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <div className="app">
       <header>
+        <ThemeToggle />
         <h1>Podcast Growth Intelligence</h1>
         <div className="summary-strip" aria-label="Key podcast metrics">
           <div className="summary-item">
